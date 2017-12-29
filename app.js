@@ -4,7 +4,9 @@ var fs= require('fs');
 http.createServer(function(req, res){
     
     res.writeHead(200, { 'Content-Type': 'text/html'  });
-    var html = fs.readFileSync(__dirname+ '/index.htm');
+    var html = fs.readFileSync(__dirname+ '/index.htm', 'utf-8');
+    var message = 'Hello Word...'
+    html = html.replace('{Message}', message);
     res.end(html);
     
 
